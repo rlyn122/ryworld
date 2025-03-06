@@ -1,0 +1,113 @@
+// Variables
+$primary-color: #ff6b6b;
+$secondary-color: #4ecdc4;
+$dark-color: #2d3436;
+$light-color: #f8f9fa;
+$game-font: 'Press Start 2P', cursive;
+
+// Base styles
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: $dark-color;
+  background-color: $light-color;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.game-font {
+  font-family: $game-font;
+  letter-spacing: 1px;
+}
+
+// Header styles
+header {
+  background-color: $primary-color;
+  padding: 2rem 0;
+  
+  h1 {
+    color: white;
+    margin: 0;
+    font-size: 2rem;
+    text-shadow: 2px 2px 0px darken($primary-color, 20%);
+  }
+}
+
+// Main content
+.featured-posts {
+  padding: 3rem 0;
+  
+  h2 {
+    color: $dark-color;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+// Food card grid
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+// Food card styles
+.food-card {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: $dark-color;
+  background-color: white;
+  
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid $secondary-color;
+  }
+  
+  h3 {
+    padding: 15px;
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+}
+
+// Footer styles
+footer {
+  background-color: $dark-color;
+  color: white;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+// Media Queries
+@media (max-width: 768px) {
+  .food-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .game-font {
+    font-size: 90%;
+  }
+}
