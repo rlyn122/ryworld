@@ -1,0 +1,14 @@
+.home-stove-images {
+    float: right;
+    clear: both;
+    margin: 0 0 10px 10px;
+    max-width: 150px;
+}
+
+.home-stove-images img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    object-fit: cover;
+}
