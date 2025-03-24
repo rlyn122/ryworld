@@ -1,0 +1,19 @@
+#cat1 {
+    position: fixed;
+    width: 250px; /* Adjust based on the width of each frame */
+    height: 184px; /* Adjust based on the height of each frame */
+    background-image: url('../imgs/Cat_3.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    z-index: 9999;
+  }
+
+#cat2 {
+    position: fixed;
+    width: 250px; /* Adjust based on the width of each frame */
+    height: 184px; /* Adjust based on the height of each frame */
+    background-image: url('../imgs/Cat_5.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    z-index: 9999;
+}
