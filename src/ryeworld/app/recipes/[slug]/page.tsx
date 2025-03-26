@@ -13,6 +13,10 @@ interface RecipeContent {
   ratings: string[];
 }
 
+interface PageProps {
+  params: { slug: string };
+}
+
 // Mock data - in a real app, this would come from a CMS or database
 const recipeData: { [key: string]: RecipeContent } = {
   'beefbarley': {
@@ -132,11 +136,7 @@ const recipeData: { [key: string]: RecipeContent } = {
   // Add more recipes here as needed
 };
 
-export default function RecipePage({
-  params
-}: {
-  params: { slug: string }
-}) {
+export default function RecipePage({ params }: PageProps) {
   // Fetch recipe data
   const recipe = recipeData[params.slug];
 
@@ -220,7 +220,8 @@ export default function RecipePage({
 
 // Generate static params for build-time generation
 export async function generateStaticParams() {
-  return Object.keys(recipeData).map((slug) => ({
-    slug: slug
-  }));
+  // Wrap the data in a Promise, though it's already async by default
+  return new Promise((resolve) => {
+    resolve(Object.keys(recipeData).map((slug) => ({ slug })));
+  });
 }
