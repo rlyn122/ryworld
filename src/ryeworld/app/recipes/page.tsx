@@ -25,7 +25,11 @@ export default function RecipesPage() {
       image: '/beefbarley/postsear.JPEG',
       date: '2024-03-20',
     }
-  ].sort((a, b) => new Date(b.date) - new Date(a.date));
+  ].sort((a, b) => {
+    const dateA = parseISO(a.date);
+    const dateB = parseISO(b.date);
+    return dateB.getTime() - dateA.getTime();
+  });
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">

@@ -14,7 +14,7 @@ interface RecipeContent {
 }
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Mock data - in a real app, this would come from a CMS or database
@@ -136,7 +136,8 @@ const recipeData: { [key: string]: RecipeContent } = {
   // Add more recipes here as needed
 };
 
-export default function RecipePage({ params }: PageProps) {
+export default async function RecipePage(props: PageProps) {
+  const params = await props.params;
   // Fetch recipe data
 
   const { slug } = params;
@@ -223,8 +224,7 @@ export default function RecipePage({ params }: PageProps) {
 
 // Generate static params for build-time generation
 export async function generateStaticParams() {
-  // Wrap the data in a Promise, though it's already async by default
-  return new Promise((resolve) => {
-    resolve(Object.keys(recipeData).map((slug) => ({ slug })));
-  });
+  return Object.keys(recipeData).map((slug) => ({
+    slug: slug
+  }));
 }
