@@ -138,7 +138,10 @@ const recipeData: { [key: string]: RecipeContent } = {
 
 export default function RecipePage({ params }: PageProps) {
   // Fetch recipe data
-  const recipe = recipeData[params.slug];
+
+  const { slug } = params;
+
+  const recipe = recipeData[slug];
 
   // If recipe not found, show 404
   if (!recipe) {
