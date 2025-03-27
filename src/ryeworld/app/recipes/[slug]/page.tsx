@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
 // Define an interface for recipe content
 interface RecipeContent {
@@ -9,137 +10,103 @@ interface RecipeContent {
   heroImage: string;
   ingredients: string[];
   instructions: string[];
-  fullArticle: string[];
-  ratings: string[];
+  prepTime?: string;
+  cookTime?: string;
+  servings?: number;
 }
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Mock data - in a real app, this would come from a CMS or database
+// Mock data - new recipes
 const recipeData: { [key: string]: RecipeContent } = {
-  'beefbarley': {
-    title: 'Beef Barley Stew: A Gut-Healing Comfort Food',
-    description: 'After a rough bout of food poisoning in Mexico, I needed something that would both comfort my soul and rebuild my decimated gut microbiome. Enter: the ultimate beef and barley stew.',
-    heroImage: '/beefbarley/postsear.JPEG', // Replace with your actual image path
+  'sourdough-rye-bread': {
+    title: 'Sourdough Bread',
+    description: 'A rustic artisan sourdough bread with a crispy crust and chewy interior. Made with a natural starter for that distinctive tangy flavor that only true sourdough can deliver.',
+    heroImage: '/recipes/cat.jpg',
     ingredients: [
-      'Beef shank',
-      'Barley',
-      'Chicken stock',
-      'Mirepoix (onions, carrots, celery)',
-      'Garlic',
-      'Herbs (thyme, bay leaf)',
-      'Salt and pepper'
+      '500g bread flour',
+      '350g water',
+      '100g active sourdough starter',
+      '10g salt',
+      'Rice flour (for dusting)',
     ],
     instructions: [
-      'Sear beef whole',
-      'Chop beef into cubes',
-      'Sauté mirepoix',
-      'Simmer/broil beef in chicken stock (1.5 hours)',
-      'Return vegetables and barley',
-      'Simmer additional 30 minutes'
+      'Mix flour, water, and starter in a large bowl until just combined. Let rest for 30 minutes (autolyse).',
+      'Add salt and fold dough to incorporate. Let rest for 30 minutes.',
+      'Perform stretch and folds every 30 minutes for 2-3 hours until dough develops strength.',
+      'Shape the dough and place in a floured banneton. Refrigerate overnight (8-12 hours).',
+      'Preheat oven with Dutch oven to 500°F (260°C). Bake with lid on for 20 minutes, then remove lid and bake for 20-25 more minutes.',
+      'Cool completely before slicing.',
     ],
-    fullArticle: [
-      'After a rough bout of food poisoning in Mexico, I needed something that would both comfort my soul and rebuild my decimated gut microbiome. Enter: the ultimate beef and barley stew. My go-to meal prep that\'s basically a hug in a pot.',
-      'This time, I switched things up. The beef section at the store looked sadder than my post-Mexico stomach - short ribs and chuck roast were looking low-quality and expensive as hell. Solution? Beef shank. Game changer.',
-      'Here\'s the pro move: sear the beef whole first. This creates an insane fond and lets you control the browning on these thicker cuts. Beef shank\'s got mad intramuscular fat that needs to render out slowly. No rush, we\'re making magic happen.',
-      'Bonus round: those beef shanks? Throw the bones in the oven and get some killer bone marrow going. Talk about nose-to-tail cooking.'
-    ],
-    ratings: [
-      'Beef Texture: 9/10',
-      'Flavor Depth: 8/10',
-      'Meal Prep Efficiency: 10/10',
-      'Gut Healing Potential: 11/10'
-    ]
+    prepTime: '24 hours',
+    cookTime: '45 mins',
+    servings: 8
   },
-  "shoyu": {
-    title: "Shoyu Chicken & Late Night Grill",
-    description:
-      "A last get-together before spring break called for a fridge-clearout feast: shoyu chicken, grilled steak, and kimchi radish rice bowls.",
-    heroImage: "/shoyu/grill_setup.JPEG",
+  'rye-chocolate-chip-cookies': {
+    title: 'Chocolate Chip Cookies',
+    description: 'Classic chocolate chip cookies with a perfect balance of crispy edges and chewy centers. Loaded with chocolate chunks and a hint of sea salt for that irresistible sweet-salty combo.',
+    heroImage: '/recipes/dawg.PNG',
     ingredients: [
-      "Shredded Shoyu Chicken (savory)",
-      "Bell Pepper",
-      "Onion",
-      "Ginger",
-      "Garlic",
-      "Brown Rice",
-      "Kimchi Radish (acid)",
-      "Shoyu Sauce with herbs, green onion, and parsley (fat)",
-      "Green Onion (garnish)",
-      "Onsen Tamago",
-      "Asparagus",
-      "4 New York Strip Steaks",
-      "Honey-Marinated Pork",
+      '225g unsalted butter, softened',
+      '200g brown sugar',
+      '100g granulated sugar',
+      '2 large eggs',
+      '1 tsp vanilla extract',
+      '300g all-purpose flour',
+      '1 tsp baking soda',
+      '1/2 tsp salt',
+      '350g chocolate chips or chunks',
+      'Flaky sea salt for topping',
     ],
     instructions: [
-      "Prepare shoyu chicken with herbs and marinade.",
-      "Grill New York strip steaks with garlic herb butter.",
-      "Stir-fry bell peppers and onions.",
-      "Prepare rice bowls with all ingredients, topping with kimchi radish and onsen tamago.",
-      "Serve with pickled radish, spicy asparagus, and garlic spinach.",
+      'Cream butter and both sugars until light and fluffy.',
+      'Add eggs one at a time, then vanilla, mixing well after each addition.',
+      'Whisk together flour, baking soda, and salt. Gradually add to wet ingredients.',
+      'Fold in chocolate chips. Chill dough for at least 2 hours or overnight.',
+      'Preheat oven to 350°F (175°C). Scoop dough onto baking sheets.',
+      'Bake for 10-12 minutes until edges are golden but centers still soft.',
+      'Sprinkle with sea salt while warm. Cool on baking sheets for 5 minutes before transferring to wire racks.',
     ],
-    fullArticle: [
-      "Tonight’s the last get-together before spring break. Friends are flying in, and we’re making a meal out of whatever’s left in the fridge. The plan: rice bowls featuring shoyu chicken, grilled steak, and a surprise onsen tamago attempt.",
-      "Finding propane was a nightmare. After a two-hour wild goose chase, I pivoted to four beautifully marbled strip steaks and honey-marinated pork. Salted the steaks, let the pork soak, and fired up the camping grill.",
-      "The steaks turned out unexpectedly fantastic—Publix GreenWise delivering a rare win. We grilled over foil, basting in garlic herb butter and dipping in ssamjang. The honey pork, however, suffered. The honey burned off too fast, leaving it mid-tier at best.",
-      "Shoyu chicken was solid but slightly too acidic. Next time, I’ll go easier on the vinegar. The onsen tamago? Let’s just say it turned into a hard-boiled L. We ball, but we’ll ball better next time.",
-    ],
-    ratings: [
-      "Steak: 9/10",
-      "Honey Pork: 6/10 (honey burned off)",
-      "Shoyu Chicken: 8/10 (too acidic)",
-      "Pickled Radishes: 7/10 (too sour!)",
-      "Asparagus Pickles: 7/10 (barely ate them)",
-      "Red Lettuce: N/A (it’s just lettuce)",
-      "Onsen Egg: N/A (ended up hard-boiled :/)",
-    ],
+    prepTime: '3 hours',
+    cookTime: '12 mins',
+    servings: 24
   },
-  "caesar": {
-    title: "Caesar Salad: The Anchovy-Free Experiment",
-    description:
-      "Inspired by Kenji Lopez-Alt but short on anchovies, this Caesar salad embraces improvisation with Worcestershire and Dijon.",
-    heroImage: "/caesar/caesar.JPEG",
+  'rye-pancakes': {
+    title: 'Fluffy Buttermilk Pancakes',
+    description: 'Light, airy, and tender buttermilk pancakes that are perfect for weekend breakfasts. Serve with maple syrup, fresh berries, and a dollop of whipped butter for an indulgent morning treat.',
+    heroImage: '/recipes/dogi.gif',
     ingredients: [
-      "Romaine lettuce",
-      "Garlic",
-      "Dijon mustard",
-      "Worcestershire sauce",
-      "Parmesan cheese",
-      "Croutons (homemade)",
-      "Lemon",
-      "Olive oil",
-      "Salt and pepper",
-      "Egg (pasteurized, playing it safe)",
+      '240g all-purpose flour',
+      '2 tbsp sugar',
+      '1 tsp baking powder',
+      '1/2 tsp baking soda',
+      '1/2 tsp salt',
+      '475ml buttermilk',
+      '2 large eggs',
+      '3 tbsp melted butter, plus more for cooking',
+      '1 tsp vanilla extract',
+      'Maple syrup, for serving',
+      'Fresh berries, for serving',
     ],
     instructions: [
-      "Infuse olive oil with grated garlic, then strain.",
-      "Chop multigrain bread, toss in garlic oil, and bake for homemade croutons.",
-      "Whisk egg yolk, Dijon, Worcestershire, lemon juice, and Parmesan into a dressing.",
-      "Slowly drizzle in olive oil while whisking to emulsify.",
-      "Toss romaine in dressing and top with Parmesan and croutons.",
+      'Whisk together flour, sugar, baking powder, baking soda, and salt in a large bowl.',
+      'In a separate bowl, whisk buttermilk, eggs, melted butter, and vanilla until combined.',
+      'Pour wet ingredients into dry ingredients and stir just until moistened. A few lumps are okay.',
+      'Heat a griddle or non-stick pan over medium heat. Lightly butter the surface.',
+      'Pour 1/4 cup batter for each pancake. Cook until bubbles form on top, then flip and cook until golden brown.',
+      'Keep pancakes warm in a 200°F (95°C) oven while cooking the remaining batter.',
+      'Serve with maple syrup and fresh berries.',
     ],
-    fullArticle: [
-      "I was watching Kenji Lopez-Alt break down Caesar salad and got inspired. Problem? No anchovies. Also, making raw egg dressing in a bird flu pandemic feels reckless. But we ball—carefully.",
-      "Caesar dressing is an emulsification game. The egg yolk holds oil and acid together, creating that iconic creamy texture. Worcestershire steps in for anchovies, and Dijon adds extra depth.",
-      "The highlight? Croutons. Infused olive oil with garlic, tossed in chopped multigrain bread, and baked them to golden perfection. Absolute gold.",
-      "Dressing turned out decent. Couldn’t match the umami depth of anchovies, but layering flavors worked. Next time, I might cave and get anchovy paste.",
-    ],
-    ratings: [
-      "Croutons: 9/10 (crispy perfection)",
-      "Dressing: 7/10 (missing anchovy punch)",
-      "Overall Salad: 8/10 (would make again)",
-      "Bird Flu Anxiety: 3/10 (we survived)",
-    ],
+    prepTime: '15 mins',
+    cookTime: '20 mins',
+    servings: 4
   }
-  // Add more recipes here as needed
 };
 
 export default async function RecipePage(props: PageProps) {
   const params = await props.params;
-  // Fetch recipe data
-
   const { slug } = params;
 
   const recipe = recipeData[slug];
@@ -150,13 +117,24 @@ export default async function RecipePage(props: PageProps) {
   }
 
   return (
-    <article className="article-content">
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <Link href="/recipes" className="text-blue-500 hover:underline mb-4 inline-block">
+        &larr; Back to Recipes
+      </Link>
+
       {/* Hero Section */}
       <header className="mb-8">
-        <h1>{recipe.title}</h1>
-        <p className="text-base/6 tracking-[-0.01em] text-gray-600">
-          {recipe.description}
-        </p>
+        <h1 className="text-3xl font-bold mb-2">{recipe.title}</h1>
+        <p className="text-gray-600 mb-4">{recipe.description}</p>
+        
+        {/* Recipe metadata */}
+        {(recipe.prepTime || recipe.cookTime || recipe.servings) && (
+          <div className="flex flex-wrap gap-4 mb-6">
+            {recipe.prepTime && <div className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-800">Prep: {recipe.prepTime}</div>}
+            {recipe.cookTime && <div className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-800">Cook: {recipe.cookTime}</div>}
+            {recipe.servings && <div className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-800">Servings: {recipe.servings}</div>}
+          </div>
+        )}
       </header>
 
       {/* Hero Image */}
@@ -172,53 +150,29 @@ export default async function RecipePage(props: PageProps) {
         </div>
       </Suspense>
 
-      {/* Ingredients Section */}
-      <section className="mb-8">
-        <h2>Ingredients</h2>
-        <ul className="list-disc pl-5">
-          {recipe.ingredients.map((ingredient, index) => (
-            <li key={index} className="mb-2">{ingredient}</li>
-          ))}
-        </ul>
-      </section>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        {/* Ingredients Section */}
+        <section>
+          <h2 className="text-xl font-semibold mb-4">Ingredients</h2>
+          <ul className="space-y-2 list-disc pl-5">
+            {recipe.ingredients.map((ingredient, index) => (
+              <li key={index} className="mb-2">{ingredient}</li>
+            ))}
+          </ul>
+        </section>
 
-      {/* Instructions Section */}
-      <section className="mb-8">
-        <h2>Cooking Process</h2>
-        <ol className="list-decimal pl-5">
-          {recipe.instructions.map((step, index) => (
-            <li key={index} className="mb-3">{step}</li>
-          ))}
-        </ol>
-      </section>
+        {/* Instructions Section */}
+        <section>
+          <h2 className="text-xl font-semibold mb-4">Instructions</h2>
+          <ol className="space-y-3 list-decimal pl-5">
+            {recipe.instructions.map((step, index) => (
+              <li key={index} className="mb-2">{step}</li>
+            ))}
+          </ol>
+        </section>
+      </div>
 
-      {/* Full Article */}
-      <section className="mb-8">
-        <h2>The Story Behind the Dish</h2>
-        {recipe.fullArticle.map((paragraph, index) => (
-          <p key={index} className="article-paragraph">
-            {paragraph}
-          </p>
-        ))}
-      </section>
-
-      {/* Ratings Section */}
-      <section className="mb-8">
-        <h2>Ratings</h2>
-        <ul className="list-none">
-          {recipe.ratings.map((rating, index) => (
-            <li key={index} className="mb-2 font-medium">{rating}</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Signature Ending */}
-      <footer className="mt-8 text-center">
-        <p className="text-sm text-gray-500">
-          ◎[▪‿▪]◎ Bon Appétit!
-        </p>
-      </footer>
-    </article>
+    </div>
   );
 }
 

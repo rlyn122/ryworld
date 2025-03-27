@@ -3,14 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --tracking-tighter: -0.01em;
+  --gap-32: 32px;
+  --gap-24: 24px;
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -22,5 +22,32 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans);
+}
+
+
+p, h2 {
+  font-family: var(--font-geist-mono);
+  letter-spacing: var(--tracking-tighter);
+  margin-bottom: 0.5rem; /* Equivalent to Tailwind's `mb-2` */
+}
+
+.gap-32 {
+  gap: var(--gap-32);
+}
+
+.gap-24 {
+  gap: var(--gap-24);
+}
+
+@keyframes flashColors {
+  0% { color: red; }
+  25% { color: orange; }
+  50% { color: yellow; }
+  75% { color: green; }
+  100% { color: blue; }
+}
+
+.flash-colors {
+  animation: flashColors 2s infinite; /* 2 seconds duration, infinite loop */
 }

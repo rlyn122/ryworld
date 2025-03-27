@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer";
 import { usePathname } from 'next/navigation';
 
 const geistSans = Geist({
@@ -31,11 +32,14 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
+        <div className="flex-grow">
         {!isHomePage && <Navbar />}
-
         {children}
+        
+        </div>
+        {!isHomePage && <Footer />}
       </body>
     </html>
   );
