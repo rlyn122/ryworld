@@ -28,21 +28,21 @@ export default function RecipesPage() {
           const mockRecipes = [
             {
               id: '1',
-              title: 'Sourdough Rye Bread',
+              title: 'test1',
               slug: 'sourdough-rye-bread',
               description: 'A classic sourdough bread with rye flour.',
               category: 'Breads'
             },
             {
               id: '2',
-              title: 'Rye Chocolate Chip Cookies',
+              title: 'test2',
               slug: 'rye-chocolate-chip-cookies',
               description: 'Delicious cookies made with rye flour for a nutty flavor.',
               category: 'Desserts'
             },
             {
               id: '3',
-              title: 'Rye Pancakes',
+              title: 'test3',
               slug: 'rye-pancakes',
               description: 'Hearty breakfast pancakes using rye flour.',
               category: 'Breakfast'
