@@ -15,7 +15,7 @@ export const blogData: { [key: string]: blogContent } = {
         title: 'Yakiniku',
         date: '2025-03-28',
         description: 'Busting out the new Iwatani',
-        heroImage: '/blogs/yakink/flame.JPEG',
+        heroImage: '/blogs/yakink/food.JPEG',
         ingredients: [
             'Pork Belly',
             'Flank Steak',
