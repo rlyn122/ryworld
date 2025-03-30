@@ -2,6 +2,7 @@ const AboutPage: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <section className="center mb-12">
+
         <h2 className="text-2xl font-semibold text-red-500 mb-4 uppercase drop-shadow-sm">You've found me</h2>
         <p className="mb-6">  
           Welcome to my little corner of the internet! I'm just a college student,

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './kitchen.module.css';
+import Image from 'next/image';
 
 const KitchenPage: React.FC = () => {
   const kitchenItems = [
@@ -27,8 +28,13 @@ const KitchenPage: React.FC = () => {
           <React.Fragment key={item.id}>
             <div className={styles.gridItem}>
               <div className={styles.imageContainer}>
-                <img src={item.image} alt={item.name} className={styles.itemImage} />
-              </div>
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  className={styles.itemImage}
+                  width={300}  // You must specify width
+                  height={200} // You must specify height
+                />              </div>
               <p className={styles.itemName}>{item.name}</p>
             </div>
             {(index + 1) % 3 === 0 && index < kitchenItems.length - 1 && (
