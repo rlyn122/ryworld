@@ -21,9 +21,18 @@ export default function Navbar() {
         /> 
          <h2>871 Kitchen</h2>
       </Link>
+
      
 
       <div className='flex items-center space-x-4'> 
+      <Link 
+        href="/gallery" 
+        className={`transition-colors duration-200 ${
+          pathname === '/gallery' ? 'text-blue-500' : 'hover:text-blue-500'
+        }`}
+      >
+        <h2>gallery</h2>
+      </Link>
       <Link 
         href="/recipes" 
         className={`transition-colors duration-200 ${
@@ -56,6 +65,7 @@ export default function Navbar() {
       >
         <h2>about</h2>
       </Link>
+
       </div>
     </nav>
   );

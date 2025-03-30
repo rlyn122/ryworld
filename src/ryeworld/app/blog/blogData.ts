@@ -11,10 +11,48 @@ interface blogContent {
 }
 
 export const blogData: { [key: string]: blogContent } = {
+    'yakiniku3.27': {
+        title: 'Yakiniku',
+        date: '2025-03-28',
+        description: 'Busting out the new Iwatani',
+        heroImage: '/blogs/yakink/flame.JPEG',
+        ingredients: [
+            'Pork Belly',
+            'Flank Steak',
+            'Chuck Roast',
+            'Bell Peppers',
+            'Onions',
+            'Mushrooms',
+            'Corn',
+            'Gochujang'
+        ],
+        instructions: [
+            'Soak bamboo skewers in water',
+            'Skewer Beef onions and bell peppers',
+            'Skewer pork belly and green onions',
+            'marinate pork belly in gochujang sauce',
+            'Grill on Iwatani outside',
+            'Eat with rice'
+        ],
+        fullArticle: [
+            'There is something magical about grilling on a wire grill with a flame as opposed to in the pan. This was my first time trying out the new Iwatani I bought, and it did not dissapoint.',
+            'We skewered a variety of random ahh meats from the fridge, including pork belly, flank steak, and chuck roast on 6 inch bamboo skewers that were much too small.',
+            'We set began grilling inside and quickly set off the fire alarm.',
+            'We moved outside and grilled the rest of the meat. I also made a gochujang marinade for the pork belly, which was a hit.',
+            'Its nice to chill outside, smoke a cig with the guys and grill some meat. Albeit the Iwatani is a bit small and a hassle to clean, it is a great addition to the kitchen.',
+        ],
+        ratings: [
+            "Iwatani: 5/5",
+            "Gochujang Marinated Pork Belly Green Onion Skewers: 6/5",
+            "Flank Steak Skewers: 3/5",
+            "Chuck Roast Skewers: 3/5",
+            "Corn with Herb Butter: 4/5",
+        ]
+    },
     'beefbarley': { 
         title: 'Beef Barley Stew: A Gut-Healing Comfort Food',
         date:'2025-03-20',
-        description: 'After a rough bout of food poisoning in Mexico, I needed something that would both comfort my soul and rebuild my decimated gut microbiome. Enter: poverty version of Kenji Lopez Alt\'s beef and barley stew.',
+        description: 'poverty version of Kenji Lopez Alt\'s beef and barley stew.',
         heroImage: '/blogs/beefbarley/postsear.JPEG', // Replace with your actual image path
         ingredients: [
             'Beef shank',
@@ -50,7 +88,7 @@ export const blogData: { [key: string]: blogContent } = {
         title: "Late Night Steak, Pork, & Chicken",
         date:'2025-03-06',
         description:
-            "A last get-together before spring break called for a fridge-clearout feast: shoyu chicken, grilled steak, and honey pork.",
+            "Last get-together before spring break 🥥",
         heroImage: "/blogs/shoyu/grill_setup.JPEG",
         ingredients: [
             "Chicken Thigh",
@@ -94,7 +132,7 @@ export const blogData: { [key: string]: blogContent } = {
         title: "Caesar Salad Dressing",
         date:'2025-03-22', 
         description:
-            "Watched someone make caesar from scratch last night, but im short on anchovies. Ayy picture is kinda aesthetic isnt it..",
+            "Ayy picture is kinda aesthetic isnt it..",
         heroImage: "/blogs/caesar/caesar.JPEG",
         ingredients: [
             "Romaine lettuce",
