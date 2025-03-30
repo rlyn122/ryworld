@@ -52,8 +52,9 @@ export default function RecipesPage() {
           setLoading(false);
         }, 1000);
       } catch (err) {
-        setError('Failed to load recipes'+ err);
+        setError(err instanceof Error ? err.message : 'Failed to load recipes');
         setLoading(false);
+    
       }
     };
 
