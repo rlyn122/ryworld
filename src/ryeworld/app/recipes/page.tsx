@@ -52,7 +52,7 @@ export default function RecipesPage() {
           setLoading(false);
         }, 1000);
       } catch (err) {
-        setError('Failed to load recipes');
+        setError('Failed to load recipes'+ err);
         setLoading(false);
       }
     };

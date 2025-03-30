@@ -1,5 +1,5 @@
 import styles from "./gallery.module.css"; // Import CSS module for styling
-import Image from "next/image";
+// import Image from "next/image";
 const galleryPage: React.FC = () => {
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">
