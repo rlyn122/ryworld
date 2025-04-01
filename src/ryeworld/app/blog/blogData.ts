@@ -39,7 +39,7 @@ export const blogData: { [key: string]: blogContent } = {
             'We skewered a variety of random ahh meats from the fridge, including pork belly, flank steak, and chuck roast on 6 inch bamboo skewers that were much too small.',
             'We set began grilling inside and quickly set off the fire alarm.',
             'We moved outside and grilled the rest of the meat. I also made a gochujang marinade for the pork belly, which was a hit.',
-            'Its nice to chill outside, smoke a cig with the guys and grill some meat. Albeit the Iwatani is a bit small and a hassle to clean, it is a great addition to the kitchen.',
+            'Its nice to chill outside, hangout with the roomies, and grill some meat. Albeit the Iwatani is a bit small and a hassle to clean, it is a great addition to the kitchen.',
         ],
         ratings: [
             "Iwatani: 5/5",
