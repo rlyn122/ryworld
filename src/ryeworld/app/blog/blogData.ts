@@ -27,18 +27,19 @@ export const blogData: { [key: string]: blogContent } = {
             'Gochujang'
         ],
         instructions: [
-            'Soak bamboo skewers in water',
-            'Skewer Beef onions and bell peppers',
-            'Skewer pork belly and green onions',
+            'soak bamboo skewers in water',
+            'skewer Beef onions and bell peppers',
+            'skewer pork belly and green onions',
             'marinate pork belly in gochujang sauce',
-            'Grill on Iwatani outside',
+            'grill on Iwatani outside',
             'Eat with rice'
         ],
         fullArticle: [
             'There is something magical about grilling on a wire grill with a flame as opposed to in the pan. This was my first time trying out the new Iwatani I bought, and it did not dissapoint.',
             'We skewered a variety of random ahh meats from the fridge, including pork belly, flank steak, and chuck roast on 6 inch bamboo skewers that were much too small.',
-            'We set began grilling inside and quickly set off the fire alarm.',
-            'We moved outside and grilled the rest of the meat. I also made a gochujang marinade for the pork belly, which was a hit.',
+            'We began grilling inside on the dining table, but quickly set off the fire alarm 😧😧 Its okay tho, cuz we moved outside and bent hungrily around our little balcony table',
+            'The gochujang pork belly was the buss of the night, the caramelization of sugar, the crispy texture from seared pork belly, the tongue coating fat and grilled green onion for a bite and acidity. There is a reason why negima yakitori exists',
+            "Other than that, the soy marinated beef chuck steak was also good. Salt and peppered beef flank steak came in last, the quality of meat probably being more important when theres no marinated",
             'Its nice to chill outside, hangout with the roomies, and grill some meat. Albeit the Iwatani is a bit small and a hassle to clean, it is a great addition to the kitchen.',
         ],
         ratings: [
@@ -47,6 +48,7 @@ export const blogData: { [key: string]: blogContent } = {
             "Flank Steak Skewers: 3/5",
             "Chuck Roast Skewers: 3/5",
             "Corn with Herb Butter: 4/5",
+            "Back pain from hunching over: 7/5 (sore for the rest of the night)"
         ]
     },
     'beefbarley': { 
@@ -72,9 +74,10 @@ export const blogData: { [key: string]: blogContent } = {
             'Simmer additional 30 minutes'
         ],
         fullArticle: [
-            'I never even heard of barley until I started making this stew, but now it is my go-to meal prep that\'s basically a hug in a pot.',
-            'This time, I switched things up. The beef section at Publix looked sadder than my post-Mexico stomach - short ribs and chuck roast were looking low-quality and expensive as hell. Solution? Beef shank.',
-            'Here\'s the pro move: sear the beef hunks whole first. This creates fond and lets you control the browning on these thicker cuts. Beef shank\'s got hella intramuscular fat that needs to render out slowly. Good thing I\'m not in a rush.',
+            'I never even heard of barley until I started making this stew, but now it is my go-to meal prep that\'s basically a hug in a pot. (not in a freaky way... idk that sounds weird)',
+            'Normally, I have this recipe pretty standardized, but this time I switched things up. The beef section at Publix often looks sadder than one of those cheap clothing stores in the mall - you know, the ones that assault your senses with that distinctive smell thats like a chemical cocktail of synthetic fabrics and industrial adhesives...what i imagine a paper factory looks like. This day was no exception - short ribs and chuck roast were looking low-quality with little marbling expensive as hell. Solution? Beef shank.',
+            'I seared the beef hunks whole first, creating fond while also controlling the browning/drying up of meat on these thicker cuts. Beef shank\'s got hella intramuscular fat that needs to render out slowly. Good thing I\'m not in a rush.',
+            'finally, I sauted the mirepoix and stewed it with chicken stock, garlic, and bay leaves.',
             'Bonus: Throw the bones in the oven and feed the bone marrow to your hungry roomates. turns out bone marrow is just mostly a bunch of fat. then again ig fat is flavor :/'
         ],
         ratings: [
@@ -115,16 +118,15 @@ export const blogData: { [key: string]: blogContent } = {
         fullArticle: [
             "Tonight's the last get-together before spring break. Friends are flying in, and we're making a meal out of whatever's left in the fridge. The plan: throw a bunch of meat on the grill.",
             "Finding propane was a nightmare. After a two-hour wild goose chase, I got it at REI (F*ck Me). To my suprise, I found four beautifully marbled strip steaks and a nice pork shoulder at Publix. Salted the steaks, let the pork soak, and fired up the camping grill (its just a hotpot grill).",
-            "The steaks turned out unexpectedly fantastic—Publix GreenWise delivering a rare win. We grilled over foil, basting in garlic herb butter and dipping in ssamjang. The honey pork, however, suffered. The honey burned off too fast, leaving it mid-tier at best.",
-            "Shoyu chicken was solid but slightly too acidic. Next time, I'll go easier on the vinegar. The onsen tamago? Let's just say it turned into a hard-boiled L. We ball, but we'll ball better next time.",
+            "The steaks turned out unexpectedly fantastic—Publix GreenWise delivering a rare win. We grilled over foil, basting in garlic herb butter and dipping in ssamjang. The honey pork, however, suffered. The honey burned off too fast, leaving it mid at best IMO.",
+            "Shoyu chicken was solid but slightly too acidic. Next time, I'll go easier on the vinegar. I tried to make onsen tamago, but it just hard boiled. As much as we try our best to ball, we'll have to ball better next time.",
         ],
         ratings: [
             "Steak: 9/10",
             "Honey Pork: 6/10 (honey burned off)",
             "Shoyu Chicken: 8/10 (too acidic)",
-            "Pickled Radishes: 7/10 (too sour!)",
-            "Asparagus Pickles: 7/10 (barely ate them)",
-            "Red Lettuce: N/A (it's just lettuce)",
+            "Pickled Radishes: 5/10 (too sour!)",
+            "Asparagus Pickles: 5/10 (barely ate them)",
             "Onsen Egg: N/A (ended up hard-boiled :/)",
         ],
     },
@@ -154,7 +156,7 @@ export const blogData: { [key: string]: blogContent } = {
             "Toss romaine in dressing and top with Parmesan and croutons.",
         ],
         fullArticle: [
-            "I was watching Kenji Lopez-Alt break down Caesar salad and got inspired at 3am last night. Not the most exciting YT vid to be watching for everyone but ig im weird for that. No tengo anchovies, also, making raw egg dressing in a bird flu pandemic feels reckless. But we ball—carefully.",
+            "I was watching Kenji Lopez-Alt break down Caesar salad and got inspired at 3am last night. Not the most exciting YT vid to be watching for everyone but ig im weird for that. Even though I didnt have anchovies, fresh parm, and making raw egg dressing in a bird flu pandemic seems like an issue, it turned out perfectly fine.",
             "Caesar dressing is an emulsification game. The egg yolk holds oil and acid together, creating that iconic creamy texture. Worcestershire steps in for anchovies, and Dijon adds extra depth.",
             "The highlight were the Croutons. Infused olive oil with garlic, tossed in chopped multigrain bread, and baked till golden.",
             "Dressing turned out decent. Couldn't match the umami depth of anchovies, but layering flavors worked. Kinda weird to be making salads but its easy what can i say.",
@@ -206,16 +208,15 @@ export const blogData: { [key: string]: blogContent } = {
             "Soy soft boiled eggs, sesame sticks, apples, corn, onions, bell peppers, and everything in your mom's pantry",
             "Most importantly, sauce it with a vinaigrette and it comes together great! 😺😺", 
             "KT 'incapable student no.2' oversalted but grilled the flank steak to perfection",
-            "ps~ Spinning water out of the salad might seem like a small step, but it's these details that separate home cooking from great home cooking.",
-            "ps~2~ it was delicious kt and af, im just kidding",
+            "ps~ Spinning water out of the salad might seem like a small step, but it really lets the leaves retain more sauce in each bite.",
+            "ps~2~ it was delicious kt and af, im very proud of you",
         ],
         "ratings": [
-            "Knife Skills Improvement: 8/10",
-            "Steak Execution: 9/10",
-            "Salad Creativity: 9/10",
+            "Knife Skills Improvement: 7/10",
+            "Steak Execution: 7/10",
+            "Salad Creativity: 6/10 (i gotta buy more random shit at the store)",
             "AF & KT Survival Rate: 10/10",
             "Antibiotics + Benadryl + Wine: idk u should probably stop",
-            "Overall Culinary Experience: 9/10"
         ]
     }
 };
